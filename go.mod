@@ -1,4 +1,4 @@
-module github.com/the-singularity-labs/test-guark
+module github.com/the-singularity-labs/create-guark-alpinejs-app
 
 go 1.18
 

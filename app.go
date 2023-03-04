@@ -4,7 +4,7 @@ import (
 	"github.com/guark/guark/app"
 	"github.com/guark/guark/log"
 	"github.com/guark/guark/engine"
-	"github.com/the-singularity-labs/test-guark/lib"
+	"github.com/the-singularity-labs/create-guark-alpinejs-app/lib"
 )
 
 func main() {
