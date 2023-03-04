@@ -7,7 +7,7 @@ Guark Alpine.js app template.
 
 Create new empty directory and cd to it, and run:
 ```bash
-git clone 
+guark init --template vue --mod github.com/username/appname
 ```
 
 ## Run dev app.
