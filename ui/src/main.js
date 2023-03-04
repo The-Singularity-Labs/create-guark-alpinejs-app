@@ -16,12 +16,24 @@ Alpine.store('images', {
     },
 })
 
-Alpine.store('wasm', {
+// Function declaration
+function hello_world() {
+    g.call("hello_world")
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+}
+
+Alpine.store('global_funcs', {
     go: {},
     setGoFunc(funcName, func) {
         this.go[funcName] =  func
     },
+    guark: {
+        hello_world: hello_world
+    }
 })
+
+Alpine.store('global_funcs').guark.hello_world()
 
 // init go functions
 export const wasmBrowserInstantiate = async (wasmModuleUrl, importObject) => {
@@ -61,10 +73,10 @@ const addWasmFunctions = async () => {
     go.run(wasmModule.instance);
 
     // Set the add function into the wasm store
-    Alpine.store('wasm').setGoFunc("add", wasmModule.instance.exports.add)
+    Alpine.store('global_funcs').setGoFunc("add", wasmModule.instance.exports.add)
 
     // Test running the add function
-    console.log( Alpine.store('wasm').go.add(40, 2));
+    console.log( Alpine.store('global_funcs').go.add(40, 2));
 };
 addWasmFunctions();
 
@@ -81,6 +93,3 @@ document.addEventListener('alpine:init', () => {
 
 Alpine.start();
 
-// g.call("foo")
-//     .then(res => console.log(res))
-//     .catch(err => console.error(err))
