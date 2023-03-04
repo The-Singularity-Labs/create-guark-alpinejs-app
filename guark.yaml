@@ -16,7 +16,7 @@ license: MIT
 logLevel: debug
 
 # App engine name. Values: webview, chrome, hybrid
-engineName: hybrid
+engineName: chrome
 
 # App engine config and options.
 engineConfig:

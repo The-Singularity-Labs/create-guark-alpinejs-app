@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <title>Create AlpineJS Guark App</title>
-  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-  <script src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default,es5,es6,es7,matchMedia,IntersectionObserver,ResizeObserver,NodeList.prototype.forEach,HTMLTemplateElement,Element.prototype.closest,requestAnimationFrame,CustomEvent,URLSearchParams,queueMicrotask" nomodule></script>
-  <script type="module" src="main.js" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Create AlpineJS Guark App</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <script src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default,es5,es6,es7,matchMedia,IntersectionObserver,ResizeObserver,NodeList.prototype.forEach,HTMLTemplateElement,Element.prototype.closest,requestAnimationFrame,CustomEvent,URLSearchParams,queueMicrotask" nomodule></script>
+    <script type="module" src="main.js" />
  </head>
  <body>
-  <div class="container --align-center">
+  <div class="container -fluid --align-center">
    <h2>Hello, world</h2>
-   <div x-data="{ show: false }">
-    <button
-     class="-primary -medium"
-     @click="show = !show"
-    >
-     Click me
-    </button>
-    <div x-show="show" class="my-16">
-     <h1>Oh, hello!</h1>
+   <div class="row --flex-wrap">
+    <div class="column --flex-order-first --flex-wrap" x-data="{
+        submit: 'Red Pill', 
+        caption: 'You take the red pill, you stay in wonderland, and I show you how deep the rabbit hole goes.', 
+        get url() { return Alpine.store('images').gifs.morpheus }
+    }">
+        <div x-data="image_widget" x-bind="bind"></div>
+    </div>
+    <div class="column --flex-order-last --flex-wrap" x-data="{
+        submit: 'Blue Pill', 
+        caption: 'The story ends, you wake up in your bed and believe whatever you want to believe.', 
+        get url() { return Alpine.store('images').gifs.keanu }
+    }">
+        <div x-data="image_widget" x-bind="bind"></div>
     </div>
    </div>
+   
   </div>
  </body>
 </html>

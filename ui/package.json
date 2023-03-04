@@ -4,7 +4,8 @@
 	"private": true,
 	"source": "src/index.html",
 	"scripts": {
-		"serve": "(sleep 5 && touch guark.lock) & parcel src/index.html",
+		"dev": "parcel src/index.html",
+		"serve": "(sleep 80 && touch guark.lock) & parcel src/index.html",
 		"build": "parcel build --dist-dir $GUARK_BUILD_DIR src/index.html"
 	},
 	"dependencies": {
@@ -12,6 +13,12 @@
 		"guark": "^0.1.0"
 	},
 	"devDependencies": {
-		"parcel": "latest"
+		"crypto-browserify": "^3.12.0",
+		"events": "^3.1.0",
+		"parcel": "latest",
+		"parcel-plugin-static-files-copy": "^2.6.0",
+		"sharp": "^0.31.3",
+		"stream-browserify": "^3.0.0",
+		"util": "^0.12.3"
 	}
 }
