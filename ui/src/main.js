@@ -1,6 +1,6 @@
 import "./assets/css/ash.min.css";
 import Alpine from 'alpinejs';
-import MyImageWidget from './components/widget.js';
+import MyPillComponent from './components/pill.js';
 import './wasm_exec'
 import g from "guark";
 
@@ -60,12 +60,10 @@ const addWasmFunctions = async () => {
     // Allow the wasm_exec go instance, bootstrap and execute our wasm module
     go.run(wasmModule.instance);
 
-    // Call the Add function export from wasm, save the result
+    // Set the add function into the wasm store
     Alpine.store('wasm').setGoFunc("add", wasmModule.instance.exports.add)
 
-    // Set the result onto the body
-    console.log(wasmModule.instance.exports.add(1, 2))
-    console.log(Alpine.store('wasm').go.add);
+    // Test running the add function
     console.log( Alpine.store('wasm').go.add(40, 2));
 };
 addWasmFunctions();
@@ -78,7 +76,7 @@ window.Alpine = Alpine;
 
 // Register Components
 document.addEventListener('alpine:init', () => {
-    Alpine.data('image_widget', MyImageWidget);
+    Alpine.data('pill', MyPillComponent);
 })
 
 Alpine.start();

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="dark">
  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -9,22 +9,39 @@
     <script type="module" src="main.js" />
  </head>
  <body>
+    <nav>
+        <div class="brand --vertical-middle">Singularity Labs</div>
+        <div class="group">
+            <h1 class="--vertical-middle">Create Guark AlpineJS App</h1>
+        </div>
+        <div class="group">
+            <a aria-labelledby="leave-button-label" href="https://github.com/orgs/The-Singularity-Labs/repositories" target="_blank" rel="noopener noreferrer">
+                <span id="leave-button-label" hidden>Opens in new tab</span>
+                <img focusable="false" src = "assets/images/leave.svg" alt="Go To Singularity" height="50" />
+                
+            </a>
+        </div>
+    </nav>
   <div class="container -fluid --align-center">
-   <h2>Hello, world</h2>
+   <h1>It is time to chose...</h1>
    <div class="row --flex-wrap">
     <div class="column --flex-order-first --flex-wrap" x-data="{
-        submit: 'Red Pill', 
+        pill_name: 'Red', 
+        button_class: {'-danger': true, '-medium': true, '-outline': true},
+        alt: 'Morpheus nodding yes',
         caption: 'You take the red pill, you stay in wonderland, and I show you how deep the rabbit hole goes.', 
         get url() { return Alpine.store('images').gifs.morpheus }
     }">
-        <div x-data="image_widget" x-bind="bind"></div>
+        <div x-data="pill" x-bind="bind"></div>
     </div>
     <div class="column --flex-order-last --flex-wrap" x-data="{
-        submit: 'Blue Pill', 
+        pill_name: 'Blue', 
+        button_class: {'-primary': true, '-medium': true, '-outline': true},
+        alt: 'Neo saying whoa',
         caption: 'The story ends, you wake up in your bed and believe whatever you want to believe.', 
         get url() { return Alpine.store('images').gifs.keanu }
     }">
-        <div x-data="image_widget" x-bind="bind"></div>
+        <div x-data="pill" x-bind="bind"></div>
     </div>
    </div>
    
