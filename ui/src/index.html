@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Create AlpineJS Guark App</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <script src="https://polyfill.io/v3/polyfill.min.js?flags=gated&features=default,es5,es6,es7,matchMedia,IntersectionObserver,ResizeObserver,NodeList.prototype.forEach,HTMLTemplateElement,Element.prototype.closest,requestAnimationFrame,CustomEvent,URLSearchParams,queueMicrotask" nomodule></script>
+  <script type="module" src="main.js" />
+ </head>
+ <body>
+  <div class="container --align-center">
+   <h2>Hello, world</h2>
+   <div x-data="{ show: false }">
+    <button
+     class="-primary -medium"
+     @click="show = !show"
+    >
+     Click me
+    </button>
+    <div x-show="show" class="my-16">
+     <h1>Oh, hello!</h1>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>

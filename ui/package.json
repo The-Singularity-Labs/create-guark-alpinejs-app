@@ -1,0 +1,17 @@
+{
+	"name": "create-guark-alpinejs",
+	"version": "0.1.0",
+	"private": true,
+	"source": "src/index.html",
+	"scripts": {
+		"serve": "(sleep 5 && touch guark.lock) & parcel src/index.html",
+		"build": "parcel build --dist-dir $GUARK_BUILD_DIR src/index.html"
+	},
+	"dependencies": {
+		"alpinejs": "^3.11.1",
+		"guark": "^0.1.0"
+	},
+	"devDependencies": {
+		"parcel": "latest"
+	}
+}
